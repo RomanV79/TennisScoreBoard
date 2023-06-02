@@ -11,6 +11,4 @@ public interface Dao<T>{
     Optional<T> getById(int id);
     List<T> getAll();
 
-    //update
-    void update(T t);
 }

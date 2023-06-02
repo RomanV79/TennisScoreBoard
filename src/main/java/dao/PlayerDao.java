@@ -2,6 +2,7 @@ package dao;
 
 import Utils.SessionFactoryUtil;
 import entity.Player;
+import jakarta.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.List;
@@ -50,8 +51,17 @@ public class PlayerDao implements Dao<Player> {
         return players;
     }
 
-    @Override
-    public void update(Player player) {
-
+    public Optional<Player> getByName(String name) {
+        Player player = null;
+        try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
+            session.beginTransaction();
+            Query query = session.createQuery("from Player where Player.name= :name", Player.class);
+            query.setParameter("Player.name", name);
+            player = (Player) query.getSingleResult();
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.ofNullable(player);
     }
 }
