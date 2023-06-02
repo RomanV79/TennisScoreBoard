@@ -4,8 +4,6 @@ import entity.Player;
 import java.util.Optional;
 
 public class Main {
-
-    private static SessionFactoryUtil sessionFactoryUtil;
     private final static PlayerDao playerDao = new PlayerDao();
 
 
