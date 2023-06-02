@@ -4,7 +4,6 @@ import Utils.SessionFactoryUtil;
 import entity.Matches;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -42,8 +41,18 @@ public class MatchesDao implements Dao<Matches> {
         List<Matches> matches = null;
         try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
             session.beginTransaction();
-            matches = session.createQuery("FROM Matches", Matches.class).getResultList();
+            matches = session.createQuery("from Matches", Matches.class).getResultList();
             session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return matches;
+    }
+    public List<Matches> getByPlayer(int id) {
+        List<Matches> matches = null;
+        try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
+             session.beginTransaction();
+             matches = session.createQuery("from Matches where Matches.player1 = :id or Matches.player2 = :id", Matches.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         }
