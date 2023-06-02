@@ -2,8 +2,10 @@ package dao;
 
 import Utils.SessionFactoryUtil;
 import entity.Matches;
+import jakarta.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -52,7 +54,10 @@ public class MatchesDao implements Dao<Matches> {
         List<Matches> matches = null;
         try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
              session.beginTransaction();
-             matches = session.createQuery("from Matches where Matches.player1 = :id or Matches.player2 = :id", Matches.class).getResultList();
+             Query query = session.createQuery("from Matches where Matches.player1 = :id or Matches.player2 = :id", Matches.class);
+             query.setParameter("id", id);
+             matches = query.getResultList();
+             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
