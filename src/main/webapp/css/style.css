@@ -172,9 +172,6 @@
     white-space: normal;
     border-radius: 10px 10px 10px 10px;
     margin-top: 26px;
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*transform: translate(0, -50%);*/
 }
 
 .btn:hover {
@@ -182,26 +179,29 @@
     color:black;
 }
 
-.btn-start {
-    background-color:green;
-    height:80px;
-    width:280px;
-    cursor:pointer;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    white-space: normal;
-    border-radius: 10px 10px 10px 10px;
+.main {
+    width: 600px;
+    white-space: nowrap;
+    margin-top: 50px;
+    flex-direction: column;
+}
+.start-link {
+    display: flex;
     margin-top: 30px;
-    border: green;
-
+    background-color: green;
+    box-shadow: 0 5px 0 darkgreen;
+    color: white;
+    padding: 1em 1.5em;
+    /*position: relative;*/
+    text-decoration: none;
+    text-transform: uppercase;
+    justify-content: center;
 }
 
-.btn-start:hover {
-    background-color: gray;
-    color:black;
+.start-link:hover {
+    color: #fff;
+    box-shadow: inset 600px 0 0 0 darkgreen;
 }
-
 
 .h1 {
     font-size: xxx-large;
@@ -229,6 +229,33 @@
 
 .bc-lightgray {
     background: lightgray;
+}
+
+input[type=text] {
+    margin-top: 10px;
+    padding:10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
+    width: 100%;
+}
+
+.card_button {
+    appearance:none;
+    -webkit-appearance:none;
+    margin-top: 10px;
+    padding:10px;
+    border:none;
+    background-color:green;
+    color:white;
+    font-weight:600;
+    border-radius:5px;
+    width:100%;
+}
+
+.card_button:hover {
+    color: white;
+    background-color:darkgreen;
 }
 
 

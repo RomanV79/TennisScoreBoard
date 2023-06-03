@@ -16,4 +16,13 @@ public class NewMatchServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/new-match.jsp");
         requestDispatcher.forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String playerOne = req.getParameter("player-1");
+        String playerTwo = req.getParameter("player-2");
+        System.out.println("Player1 = " + playerOne);
+        System.out.println("Player2 = " + playerTwo);
+
+    }
 }

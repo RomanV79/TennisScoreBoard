@@ -21,17 +21,9 @@
 </header>
 <section>
     <div class="container">
-        <div class="btn-wrapper">
-            <form action="new-match">
-                <button class="btn-start">Начать новый матч</button>
-            </form>
-        </div>
-    </div>
-    <div class="container">
-        <div class="btn-wrapper">
-            <form action="matches">
-                <button class="btn-start">Завершенные матчи</button>
-            </form>
+        <div class="main">
+            <a class="start-link" href="new-match">Начать новый матч</a>
+            <a class="start-link" href="matches">Завершенные матчи</a>
         </div>
     </div>
 </section>
