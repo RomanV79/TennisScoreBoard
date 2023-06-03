@@ -24,7 +24,7 @@
         <div class="main">
             <form action="" method="post">
                 <div class="">
-                    <input type="text" placeholder="Player #1 Name" id="1" name="player-1"required />
+                    <input type="text" placeholder="Player #1 Name" id="1" name="player-1" required />
                 </div>
                 <div class="">
                     <input type="text" placeholder="Player #2 Name" id="2" name="player-2" required />
