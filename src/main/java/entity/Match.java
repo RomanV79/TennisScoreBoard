@@ -3,8 +3,8 @@ package entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Matches")
-public class Matches {
+@Table(name="Match")
+public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -22,10 +22,10 @@ public class Matches {
     @JoinColumn(name = "winner", nullable = false)
     private Player winner;
 
-    public Matches() {
+    public Match() {
     }
 
-    public Matches(Player player1, Player player2) {
+    public Match(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
     }
@@ -64,7 +64,7 @@ public class Matches {
 
     @Override
     public String toString() {
-        return "Matches{" +
+        return "Match{" +
                 "id=" + id +
                 ", player1=" + player1 +
                 ", player2=" + player2 +

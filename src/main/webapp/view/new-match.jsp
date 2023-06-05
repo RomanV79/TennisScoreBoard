@@ -22,7 +22,7 @@
 <section>
     <div class="container">
         <div class="main">
-            <form action="" method="post">
+            <form action="new-match" method="post">
                 <div class="">
                     <input type="text" placeholder="Player #1 Name" id="1" name="player-1" required />
                 </div>
