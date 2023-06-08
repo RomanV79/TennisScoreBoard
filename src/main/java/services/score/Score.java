@@ -8,12 +8,14 @@ public class Score {
     private int scoreGame;
     private ScorePointEnum scorePoint;
     private int wonSet;
+    private int scoreTieBreak;
 
     public Score() {
         this.listSet = new ArrayList<>();
         this.scoreGame = 0;
         this.scorePoint = ScorePointEnum.ZERO;
         this.wonSet = 0;
+        this.scoreTieBreak = 0;
     }
 
     public List<Integer> getListSet() {
@@ -34,6 +36,18 @@ public class Score {
 
     public void setScoreGame(int scoreGame) {
         this.scoreGame = scoreGame;
+    }
+
+    public int getScoreTieBreak() {
+        return scoreTieBreak;
+    }
+
+    public void setScoreTieBreak(int scoreTieBreak) {
+        this.scoreTieBreak = scoreTieBreak;
+    }
+
+    public int getWonSet() {
+        return wonSet;
     }
 
     public void appendPoint(){
@@ -61,5 +75,9 @@ public class Score {
 
     public void appendWonSet(){
         wonSet++;
+    }
+
+    public void appendTieBreakPoint(){
+        scoreTieBreak++;
     }
 }

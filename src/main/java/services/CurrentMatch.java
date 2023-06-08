@@ -13,6 +13,7 @@ public class CurrentMatch {
     private final Score secondScore;
     private final int SET_SCHEME = 3; // потом можно модифицировать для запроса количества сетов при старте матча
     private int setForWin;
+    private MatchStage stage;
 
     public CurrentMatch(UUID uuid, Player firstPlayer, Player secondPlayer) {
         this.uuid = uuid;
@@ -21,6 +22,7 @@ public class CurrentMatch {
         this.firstScore = new Score();
         this.secondScore = new Score();
         this.setForWin = (SET_SCHEME + 1) / 2;
+        this.stage = MatchStage.NORMAL;
     }
 
     @Override
@@ -54,5 +56,17 @@ public class CurrentMatch {
 
     public Score getSecondScore() {
         return secondScore;
+    }
+
+    public MatchStage getStage() {
+        return stage;
+    }
+
+    public void setStage(MatchStage stage) {
+        this.stage = stage;
+    }
+
+    public int getSetForWin() {
+        return setForWin;
     }
 }

@@ -100,7 +100,12 @@
                     </div>
                     <div class="col-points mr-6 ml-6">
                         <div class="col-score-points">
-                            <p class="text-score">${currentMatch.firstScore.scorePoint.pointCode}</p>
+                            <c:if test="${currentMatch.stage eq 'NORMAL'}">
+                                <p class="text-score">${currentMatch.firstScore.scorePoint.pointCode}</p>
+                            </c:if>
+                            <c:if test="${currentMatch.stage eq 'TIEBREAK'}">
+                                <p class="text-score">${currentMatch.firstScore.scoreTieBreak}</p>
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-but">
@@ -168,7 +173,12 @@
                     </div>
                     <div class="col-points mr-6 ml-6">
                         <div class="col-score-points">
-                            <p class="text-score">${currentMatch.secondScore.scorePoint.pointCode}</p>
+                            <c:if test="${currentMatch.stage eq 'NORMAL'}">
+                                <p class="text-score">${currentMatch.secondScore.scorePoint.pointCode}</p>
+                            </c:if>
+                            <c:if test="${currentMatch.stage eq 'TIEBREAK'}">
+                                <p class="text-score">${currentMatch.secondScore.scoreTieBreak}</p>
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-but">
