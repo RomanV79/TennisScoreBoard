@@ -1,6 +1,5 @@
 package controllers;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -19,7 +18,6 @@ public class MatchScoreServlet extends HttpServlet {
 
     private OngoingMatchesService ongoingMatchesService = OngoingMatchesService.getOngoingMatchesService();
     private final MatchScoreCalculationService matchScoreCalculationService = new MatchScoreCalculationService();
-    private PlayerEnum playerEnum;
     CurrentMatch currentMatch;
 
     @Override
@@ -43,6 +41,7 @@ public class MatchScoreServlet extends HttpServlet {
         System.out.println(win2);
         System.out.println(uuid);
 
+        PlayerEnum playerEnum;
         if (win1 != null) {
             playerEnum = PlayerEnum.FIRST_PLAYER;
         } else {

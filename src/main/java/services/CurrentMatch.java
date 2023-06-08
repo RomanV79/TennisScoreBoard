@@ -6,11 +6,11 @@ import services.score.Score;
 import java.util.UUID;
 
 public class CurrentMatch {
-    private UUID uuid;
-    private Player firstPlayer;
-    private Player secondPlayer;
-    private Score firstScore;
-    private Score secondScore;
+    private final UUID uuid;
+    private final Player firstPlayer;
+    private final Player secondPlayer;
+    private final Score firstScore;
+    private final Score secondScore;
     private final int SET_SCHEME = 3; // потом можно модифицировать для запроса количества сетов при старте матча
     private int setForWin;
 

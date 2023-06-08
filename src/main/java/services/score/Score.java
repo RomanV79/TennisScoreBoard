@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Score {
-    private List<ScoreSet> listSet;
+    private final List<ScoreSet> listSet;
     private ScoreSet scoreSet;
     private ScoreGame scoreGame;
     private ScorePoint scorePoint;
