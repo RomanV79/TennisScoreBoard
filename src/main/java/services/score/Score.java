@@ -7,11 +7,13 @@ public class Score {
     private final List<Integer> listSet;
     private int scoreGame;
     private ScorePointEnum scorePoint;
+    private int wonSet;
 
     public Score() {
         this.listSet = new ArrayList<>();
         this.scoreGame = 0;
         this.scorePoint = ScorePointEnum.ZERO;
+        this.wonSet = 0;
     }
 
     public List<Integer> getListSet() {
@@ -45,5 +47,19 @@ public class Score {
 
     public void appendGame(){
         scoreGame++;
+    }
+
+    public void setFORTY(){
+        scorePoint = ScorePointEnum.FORTY;
+    }
+    public void setADV(){
+        scorePoint = ScorePointEnum.ADV;
+    }
+    public void setWIN(){
+        scorePoint = ScorePointEnum.WIN;
+    }
+
+    public void appendWonSet(){
+        wonSet++;
     }
 }
