@@ -53,18 +53,23 @@
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
             <version>3.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
 
 <!--        <dependency>
             <groupId>org.apache.taglibs</groupId>
             <artifactId>taglibs-standard-spec</artifactId>
             <version>1.2.5</version>
-        </dependency>
-        <dependency>
+        </dependency>-->
+<!--        <dependency>
             <groupId>org.apache.taglibs</groupId>
             <artifactId>taglibs-standard-impl</artifactId>
             <version>1.2.5</version>
-        </dependency>
-        &lt;!&ndash; https://mvnrepository.com/artifact/org.glassfish/jakarta.el &ndash;&gt;
+        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.glassfish/jakarta.el &ndash;&gt;
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>jakarta.el</artifactId>

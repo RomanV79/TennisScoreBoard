@@ -50,16 +50,36 @@
                 <div class="table-score">
                     <div class="col-prev-sets ml-6 mr-6">
                         <div class="col-score-set">
-                            <p class="text-score">1</p>
+                            <c:if test="${currentMatch.firstScore.listSet.size() == 0}">
+                                <p class="text-score" style="color: black">.</p>
+                            </c:if>
+                            <c:if test="${currentMatch.firstScore.listSet.size() > 0}">
+                                <p class="text-score"><c:out value="${currentMatch.firstScore.listSet.get(0)}"></c:out></p>
+                            </c:if>
                         </div>
                         <div class="col-score-set">
-                            <p class="text-score">2</p>
+                            <c:if test="${currentMatch.firstScore.listSet.size() < 2}">
+                                <p class="text-score" style="color: black">.</p>
+                            </c:if>
+                            <c:if test="${currentMatch.firstScore.listSet.size() > 1}">
+                                <p class="text-score"><c:out value="${currentMatch.firstScore.listSet.get(1)}"></c:out></p>
+                            </c:if>
                         </div>
                         <div class="col-score-set">
-                            <p class="text-score">3</p>
+                            <c:if test="${currentMatch.firstScore.listSet.size() < 3}">
+                                <p class="text-score" style="color: black">.</p>
+                            </c:if>
+                            <c:if test="${currentMatch.firstScore.listSet.size() > 2}">
+                                <p class="text-score"><c:out value="${currentMatch.firstScore.listSet.get(2)}"></c:out></p>
+                            </c:if>
                         </div>
                         <div class="col-score-set">
-                            <p class="text-score">4</p>
+                            <c:if test="${currentMatch.firstScore.listSet.size() < 4}">
+                                <p class="text-score" style="color: black">.</p>
+                            </c:if>
+                            <c:if test="${currentMatch.firstScore.listSet.size() > 3}">
+                                <p class="text-score"><c:out value="${currentMatch.firstScore.listSet.get(3)}"></c:out></p>
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-player">
@@ -98,16 +118,36 @@
                 <div class="table-score">
                     <div class="col-prev-sets ml-6 mr-6">
                         <div class="col-score-set">
-                            <p class="text-score">5</p>
+                            <c:if test="${currentMatch.secondScore.listSet.size() == 0}">
+                                <p class="text-score" style="color: black">.</p>
+                            </c:if>
+                            <c:if test="${currentMatch.secondScore.listSet.size() > 0}">
+                                <p class="text-score"><c:out value="${currentMatch.secondScore.listSet.get(0)}"></c:out></p>
+                            </c:if>
                         </div>
                         <div class="col-score-set">
-                            <p class="text-score">6</p>
+                            <c:if test="${currentMatch.secondScore.listSet.size() < 2}">
+                                <p class="text-score" style="color: black">.</p>
+                            </c:if>
+                            <c:if test="${currentMatch.secondScore.listSet.size() > 1}">
+                                <p class="text-score"><c:out value="${currentMatch.secondScore.listSet.get(1)}"></c:out></p>
+                            </c:if>
                         </div>
                         <div class="col-score-set">
-                            <p class="text-score">7</p>
+                            <c:if test="${currentMatch.secondScore.listSet.size() < 3}">
+                                <p class="text-score" style="color: black">.</p>
+                            </c:if>
+                            <c:if test="${currentMatch.secondScore.listSet.size() > 2}">
+                                <p class="text-score"><c:out value="${currentMatch.secondScore.listSet.get(2)}"></c:out></p>
+                            </c:if>
                         </div>
                         <div class="col-score-set">
-                            <p class="text-score">8</p>
+                            <c:if test="${currentMatch.secondScore.listSet.size() < 4}">
+                                <p class="text-score" style="color: black">.</p>
+                            </c:if>
+                            <c:if test="${currentMatch.secondScore.listSet.size() > 3}">
+                                <p class="text-score"><c:out value="${currentMatch.secondScore.listSet.get(3)}"></c:out></p>
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-player">

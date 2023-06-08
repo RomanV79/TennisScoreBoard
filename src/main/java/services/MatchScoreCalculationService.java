@@ -29,6 +29,7 @@ public class MatchScoreCalculationService {
 
 
 
+
     }
 
     private static void countedNextPoint(CurrentMatch currentMatch, PlayerEnum playerEnum) {
