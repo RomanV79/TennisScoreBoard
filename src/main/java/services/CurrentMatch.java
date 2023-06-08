@@ -9,23 +9,18 @@ public class CurrentMatch {
     private UUID uuid;
     private Player firstPlayer;
     private Player secondPlayer;
-    private Score score;
+    private Score firstScore;
+    private Score secondScore;
     private final int SET_SCHEME = 3; // потом можно модифицировать для запроса количества сетов при старте матча
     private int setForWin;
-
-
-    public CurrentMatch() {
-    }
 
     public CurrentMatch(UUID uuid, Player firstPlayer, Player secondPlayer) {
         this.uuid = uuid;
         this.firstPlayer = firstPlayer;
         this.secondPlayer = secondPlayer;
-        this.score = new Score();
-    }
-
-    public UUID getUuid() {
-        return uuid;
+        this.firstScore = new Score();
+        this.secondScore = new Score();
+        this.setForWin = (SET_SCHEME + 1) / 2;
     }
 
     @Override
@@ -34,9 +29,30 @@ public class CurrentMatch {
                 "uuid=" + uuid +
                 ", firstPlayer=" + firstPlayer +
                 ", secondPlayer=" + secondPlayer +
-                ", score=" + score +
+                ", firstScore=" + firstScore +
+                ", secondScore=" + secondScore +
                 ", SET_SCHEME=" + SET_SCHEME +
                 ", setForWin=" + setForWin +
                 '}';
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public Player getFirstPlayer() {
+        return firstPlayer;
+    }
+
+    public Player getSecondPlayer() {
+        return secondPlayer;
+    }
+
+    public Score getFirstScore() {
+        return firstScore;
+    }
+
+    public Score getSecondScore() {
+        return secondScore;
     }
 }

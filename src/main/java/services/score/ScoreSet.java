@@ -1,11 +1,13 @@
 package services.score;
 
 public class ScoreSet {
-    private int gameFirstPlayer;
-    private int gameSecondPlayer;
+    private int set;
 
     public ScoreSet() {
-        this.gameFirstPlayer = 0;
-        this.gameSecondPlayer = 0;
+        this.set = 0;
+    }
+
+    public int getSet() {
+        return set;
     }
 }

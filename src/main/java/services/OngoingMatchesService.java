@@ -1,18 +1,33 @@
 package services;
 
+import entity.Player;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class OngoingMatchesService {
-    private static final OngoingMatchesService INSTANCE = new OngoingMatchesService();
-    private OngoingMatchesService(){}
+    private static final OngoingMatchesService SINGLTON = new OngoingMatchesService();
     private final Map<UUID, CurrentMatch> currentMatches = new ConcurrentHashMap<>();
 
-    public static OngoingMatchesService getInstance() {
-        return INSTANCE;
+    private OngoingMatchesService() {
     }
 
-    public void addMatchList(CurrentMatch currentMatch) {
-        currentMatches.put(currentMatch.getUuid(), currentMatch);
+    public static OngoingMatchesService getOngoingMatchesService(){
+        return SINGLTON;
     }
+
+
+    public void createNewMatch(UUID uuid, Player firstPlayer, Player secondPlayer) {
+        CurrentMatch currentMatch = new CurrentMatch(uuid, firstPlayer, secondPlayer);
+        currentMatches.put(uuid, currentMatch);
+    }
+
+    public Map<UUID, CurrentMatch> getCurrentMatches() {
+        return currentMatches;
+    }
+
+    public CurrentMatch getCurrentMatch(UUID uuid) {
+        return currentMatches.get(uuid);
+    }
+
 }

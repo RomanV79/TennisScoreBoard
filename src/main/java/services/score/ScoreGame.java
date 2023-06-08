@@ -2,11 +2,14 @@ package services.score;
 
 public class ScoreGame {
 
-    private ScorePoint gameFirstPlayer;
-    private ScorePoint gameSecondPlayer;
+    private int game;
 
     public ScoreGame() {
-        this.gameFirstPlayer = new ScorePoint();
-        this.gameSecondPlayer = new ScorePoint();
+        this.game = 0;
+
+    }
+
+    public int getGame() {
+        return game;
     }
 }

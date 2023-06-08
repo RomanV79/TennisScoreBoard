@@ -13,7 +13,6 @@ import java.io.IOException;
 public class MatchesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/matches.jsp");
-        requestDispatcher.forward(req, resp);
+        req.getRequestDispatcher("/view/matches.jsp");
     }
 }
