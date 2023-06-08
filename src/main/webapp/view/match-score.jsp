@@ -75,12 +75,12 @@
                     </div>
                     <div class="col-sets mr-6 ml-6">
                         <div class="col-score-set">
-                            <p class="text-score">${currentMatch.firstScore.scoreGame.game}</p>
+                            <p class="text-score">${currentMatch.firstScore.scoreGame}</p>
                         </div>
                     </div>
                     <div class="col-points mr-6 ml-6">
                         <div class="col-score-points">
-                            <p class="text-score">${currentMatch.firstScore.scorePoint.point.pointCode}</p>
+                            <p class="text-score">${currentMatch.firstScore.scorePoint.pointCode}</p>
                         </div>
                     </div>
                     <div class="col-but">
@@ -98,16 +98,16 @@
                 <div class="table-score">
                     <div class="col-prev-sets ml-6 mr-6">
                         <div class="col-score-set">
-                            <p class="text-score">6</p>
+                            <p class="text-score">5</p>
                         </div>
                         <div class="col-score-set">
                             <p class="text-score">6</p>
                         </div>
                         <div class="col-score-set">
-                            <p class="text-score">2</p>
+                            <p class="text-score">7</p>
                         </div>
                         <div class="col-score-set">
-                            <p class="text-score">6</p>
+                            <p class="text-score">8</p>
                         </div>
                     </div>
                     <div class="col-player">
@@ -123,12 +123,12 @@
                     </div>
                     <div class="col-sets mr-6 ml-6">
                         <div class="col-score-set">
-                            <p class="text-score">${currentMatch.secondScore.scoreGame.game}</p>
+                            <p class="text-score">${currentMatch.secondScore.scoreGame}</p>
                         </div>
                     </div>
                     <div class="col-points mr-6 ml-6">
                         <div class="col-score-points">
-                            <p class="text-score">${currentMatch.secondScore.scorePoint.point.pointCode}</p>
+                            <p class="text-score">${currentMatch.secondScore.scorePoint.pointCode}</p>
                         </div>
                     </div>
                     <div class="col-but">

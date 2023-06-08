@@ -4,31 +4,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Score {
-    private final List<ScoreSet> listSet;
-    private ScoreSet scoreSet;
-    private ScoreGame scoreGame;
-    private ScorePoint scorePoint;
+    private final List<Integer> listSet;
+    private int scoreGame;
+    private ScorePointEnum scorePoint;
 
     public Score() {
         this.listSet = new ArrayList<>();
-        this.scoreSet = new ScoreSet();
-        this.scoreGame = new ScoreGame();
-        this.scorePoint = new ScorePoint();
+        this.scoreGame = 0;
+        this.scorePoint = ScorePointEnum.ZERO;
     }
 
-    public List<ScoreSet> getListSet() {
+    public List<Integer> getListSet() {
         return listSet;
     }
 
-    public ScoreSet getScoreSet() {
-        return scoreSet;
+    public ScorePointEnum getScorePoint() {
+        return scorePoint;
     }
 
-    public ScoreGame getScoreGame() {
+    public int getScoreGame() {
         return scoreGame;
     }
 
-    public ScorePoint getScorePoint() {
-        return scorePoint;
+    public void setScorePoint(ScorePointEnum scorePoint) {
+        this.scorePoint = scorePoint;
+    }
+
+    public void setScoreGame(int scoreGame) {
+        this.scoreGame = scoreGame;
+    }
+
+    public void appendPoint(){
+        switch (scorePoint) {
+            case ZERO -> scorePoint = ScorePointEnum.FIFTEEN;
+            case FIFTEEN -> scorePoint = ScorePointEnum.THIRTY;
+            case THIRTY -> scorePoint = ScorePointEnum.FORTY;
+            case FORTY -> scorePoint = ScorePointEnum.WIN;
+        }
+    }
+
+    public void appendGame(){
+        scoreGame++;
     }
 }
