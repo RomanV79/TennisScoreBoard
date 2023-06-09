@@ -9,6 +9,7 @@ public class CurrentMatch {
     private final UUID uuid;
     private final Player firstPlayer;
     private final Player secondPlayer;
+    private Player winner;
     private final Score firstScore;
     private final Score secondScore;
     private final int SET_SCHEME = 3; // потом можно модифицировать для запроса количества сетов при старте матча
@@ -31,10 +32,12 @@ public class CurrentMatch {
                 "uuid=" + uuid +
                 ", firstPlayer=" + firstPlayer +
                 ", secondPlayer=" + secondPlayer +
+                ", winner=" + winner +
                 ", firstScore=" + firstScore +
                 ", secondScore=" + secondScore +
                 ", SET_SCHEME=" + SET_SCHEME +
                 ", setForWin=" + setForWin +
+                ", stage=" + stage +
                 '}';
     }
 
@@ -68,5 +71,13 @@ public class CurrentMatch {
 
     public int getSetForWin() {
         return setForWin;
+    }
+
+    public Player getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
     }
 }

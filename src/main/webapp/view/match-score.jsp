@@ -15,7 +15,6 @@
         </div>
     </div>
 </header>
-
 <section>
     <div class="container">
         <div class="table-general">
@@ -54,7 +53,8 @@
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
                             <c:if test="${currentMatch.firstScore.listSet.size() > 0}">
-                                <p class="text-score"><c:out value="${currentMatch.firstScore.listSet.get(0)}"></c:out></p>
+                                <p class="text-score"><c:out
+                                        value="${currentMatch.firstScore.listSet.get(0)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
@@ -62,7 +62,8 @@
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
                             <c:if test="${currentMatch.firstScore.listSet.size() > 1}">
-                                <p class="text-score"><c:out value="${currentMatch.firstScore.listSet.get(1)}"></c:out></p>
+                                <p class="text-score"><c:out
+                                        value="${currentMatch.firstScore.listSet.get(1)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
@@ -70,7 +71,8 @@
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
                             <c:if test="${currentMatch.firstScore.listSet.size() > 2}">
-                                <p class="text-score"><c:out value="${currentMatch.firstScore.listSet.get(2)}"></c:out></p>
+                                <p class="text-score"><c:out
+                                        value="${currentMatch.firstScore.listSet.get(2)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
@@ -78,7 +80,8 @@
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
                             <c:if test="${currentMatch.firstScore.listSet.size() > 3}">
-                                <p class="text-score"><c:out value="${currentMatch.firstScore.listSet.get(3)}"></c:out></p>
+                                <p class="text-score"><c:out
+                                        value="${currentMatch.firstScore.listSet.get(3)}"></c:out></p>
                             </c:if>
                         </div>
                     </div>
@@ -111,7 +114,9 @@
                     <div class="col-but">
                         <div class="btn-wrapper">
                             <form method="post">
-                                <button class="btn" name="player-1" value="player-1-win">Take score #1</button>
+                                <c:if test="${currentMatch.stage ne 'END'}">
+                                    <button class="btn" name="player-1" value="player-1-win">Take score #1</button>
+                                </c:if>
                             </form>
                         </div>
                     </div>
@@ -127,7 +132,8 @@
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
                             <c:if test="${currentMatch.secondScore.listSet.size() > 0}">
-                                <p class="text-score"><c:out value="${currentMatch.secondScore.listSet.get(0)}"></c:out></p>
+                                <p class="text-score"><c:out
+                                        value="${currentMatch.secondScore.listSet.get(0)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
@@ -135,7 +141,8 @@
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
                             <c:if test="${currentMatch.secondScore.listSet.size() > 1}">
-                                <p class="text-score"><c:out value="${currentMatch.secondScore.listSet.get(1)}"></c:out></p>
+                                <p class="text-score"><c:out
+                                        value="${currentMatch.secondScore.listSet.get(1)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
@@ -143,7 +150,8 @@
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
                             <c:if test="${currentMatch.secondScore.listSet.size() > 2}">
-                                <p class="text-score"><c:out value="${currentMatch.secondScore.listSet.get(2)}"></c:out></p>
+                                <p class="text-score"><c:out
+                                        value="${currentMatch.secondScore.listSet.get(2)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
@@ -151,7 +159,8 @@
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
                             <c:if test="${currentMatch.secondScore.listSet.size() > 3}">
-                                <p class="text-score"><c:out value="${currentMatch.secondScore.listSet.get(3)}"></c:out></p>
+                                <p class="text-score"><c:out
+                                        value="${currentMatch.secondScore.listSet.get(3)}"></c:out></p>
                             </c:if>
                         </div>
                     </div>
@@ -184,17 +193,31 @@
                     <div class="col-but">
                         <div class="btn-wrapper">
                             <form method="post">
-                                <button class="btn" name="player-2" value="player-2-win">Take score #2</button>
+                                <c:if test="${currentMatch.stage ne 'END'}">
+                                    <button class="btn" name="player-2" value="player-2-win">Take score #2</button>
+                                </c:if>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+            <c:if test="${currentMatch.stage eq 'END'}">
+                <div>
+                    <div class="table-result-title">
+                        <p class="result-title">winner</p>
+                    </div>
+                    <div class="table-result">
+                        <p style="font-size: 18px; font-weight: bold">${currentMatch.winner.name}</p>
+                    </div>
+                    <div style="background-color: lightgray; margin-bottom: 0px; margin-top: -10px; padding-bottom: 15px;">
+                        <a href="index.jsp">
+                            <button type="submit" class="card_button" style="font-size: 14px;">Continue</button>
+                        </a>
+                    </div>
+                </div>
+            </c:if>
         </div>
-
     </div>
-
-
 </section>
 </body>
 </html>

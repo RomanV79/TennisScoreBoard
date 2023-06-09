@@ -5,13 +5,14 @@ import entity.Player;
 import jakarta.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import java.util.List;
 import java.util.Optional;
 
 public class PlayerDao implements Dao<Player> {
 
     @Override
-    public void add(Player player) {
+    public Player create(Player player) {
         Transaction transaction = null;
         try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
             transaction = session.beginTransaction();
@@ -23,6 +24,7 @@ public class PlayerDao implements Dao<Player> {
             }
             e.printStackTrace();
         }
+        return player;
     }
 
     @Override
@@ -55,8 +57,8 @@ public class PlayerDao implements Dao<Player> {
         Player player = null;
         try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
             session.beginTransaction();
-            Query query = session.createQuery("from Player where Player.name= :name", Player.class);
-            query.setParameter("Player.name", name);
+            Query query = session.createQuery("from Player where name= :name", Player.class);
+            query.setParameter("name", name);
             player = (Player) query.getSingleResult();
             session.getTransaction().commit();
         } catch (Exception e) {

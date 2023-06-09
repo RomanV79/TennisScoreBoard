@@ -16,7 +16,7 @@
     <div class="container">
         <div class="main">
             <a class="start-link" href="new-match">Начать новый матч</a>
-            <a class="start-link" href="match">Завершенные матчи</a>
+            <a class="start-link" href="matches">Завершенные матчи</a>
         </div>
     </div>
 </section>

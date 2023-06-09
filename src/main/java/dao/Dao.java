@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface Dao<T>{
     //create
-    void add(T t);
+    T create(T t);
 
     //read
     Optional<T> getById(int id);

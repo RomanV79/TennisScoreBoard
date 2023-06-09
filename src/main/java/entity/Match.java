@@ -10,24 +10,25 @@ public class Match {
     @Column(name = "id")
     private int id;
 
-    @OneToOne()
+    @ManyToOne()
     @JoinColumn(name = "player_1", nullable = false)
     private Player player1;
 
-    @OneToOne()
+    @ManyToOne()
     @JoinColumn(name = "player_2", nullable = false)
     private Player player2;
 
-    @OneToOne()
+    @ManyToOne()
     @JoinColumn(name = "winner", nullable = false)
     private Player winner;
 
     public Match() {
     }
 
-    public Match(Player player1, Player player2) {
+    public Match(Player player1, Player player2, Player winner) {
         this.player1 = player1;
         this.player2 = player2;
+        this.winner = winner;
     }
 
     public int getId() {

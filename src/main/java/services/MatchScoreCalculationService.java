@@ -48,7 +48,6 @@ public class MatchScoreCalculationService {
                 setZeroGameForAll(currentMatch);
                 currentMatch.setStage(NORMAL);
             }
-
         }
 
         if (playerEnum == SECOND_PLAYER) {
@@ -92,9 +91,9 @@ public class MatchScoreCalculationService {
         }
         if (isMatchEnd(currentMatch)) {
             currentMatch.setStage(END);
+            if (currentMatch.getFirstScore().getWonSet() == currentMatch.getSetForWin()) currentMatch.setWinner(currentMatch.getFirstPlayer());
+            if (currentMatch.getSecondScore().getWonSet() == currentMatch.getSetForWin()) currentMatch.setWinner(currentMatch.getSecondPlayer());
         }
-
-
     }
 
     private static void countedNextPointFirstPlayer(CurrentMatch currentMatch) {

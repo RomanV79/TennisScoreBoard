@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public class MatchesDao implements Dao<Match> {
     @Override
-    public void add(Match match) {
+    public Match create(Match match) {
         Transaction transaction = null;
         try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
             transaction = session.beginTransaction();
@@ -23,6 +23,7 @@ public class MatchesDao implements Dao<Match> {
             }
             e.printStackTrace();
         }
+        return match;
     }
 
     @Override
