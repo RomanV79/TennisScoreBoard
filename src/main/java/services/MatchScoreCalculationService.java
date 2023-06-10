@@ -8,7 +8,6 @@ import static services.score.PlayerEnum.*;
 import static services.score.ScorePointEnum.*;
 
 public class MatchScoreCalculationService {
-    private final OngoingMatchesService ongoingMatchesService = OngoingMatchesService.getOngoingMatchesService();
 
     public void winPoint(CurrentMatch currentMatch, PlayerEnum playerEnum){
         ScorePointEnum scorePointEnumFirstPlayer = currentMatch.getFirstScore().getScorePoint();

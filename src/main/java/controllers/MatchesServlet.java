@@ -8,7 +8,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.eclipse.tags.shaded.org.apache.xalan.templates.ElemNumber;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -39,13 +38,6 @@ public class MatchesServlet extends HttpServlet {
         }
         if (matchesToView.size() > itemPerPage) {
             int startN = page * itemPerPage;
-//            int el1 = (page + 1) * itemPerPage;
-//            int el2 = qntOfPage * itemPerPage - matchesToView.size();
-//            System.out.println("qntOfPage = " + qntOfPage);
-//            System.out.println("page = " + page);
-//            System.out.println("el1 = " + el1);
-//            System.out.println("el2 = " + el2);
-//            int endN = matchesToView.size() - el1 + el2;
             int endN;
             if (page + 1 != qntOfPage) {
                 endN = itemPerPage * (page + 1);

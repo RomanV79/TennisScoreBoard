@@ -48,6 +48,7 @@ public class MatchScoreServlet extends HttpServlet {
         resp.sendRedirect("match-score?uuid=" + uuid);
         finishedMatchesPersistenceService.persist(currentMatch);
 //        finishedMatchesPersistenceService.removeCurrentEndMatch(currentMatch);
+
     }
 
     private static UUID getUuid(HttpServletRequest req) {
