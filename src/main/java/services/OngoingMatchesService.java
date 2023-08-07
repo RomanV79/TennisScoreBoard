@@ -6,14 +6,14 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class OngoingMatchesService {
-    private static final OngoingMatchesService SINGLTON = new OngoingMatchesService();
+    private static final OngoingMatchesService INSTANCE = new OngoingMatchesService();
     private final Map<UUID, CurrentMatch> currentMatches = new ConcurrentHashMap<>();
 
     private OngoingMatchesService() {
     }
 
     public static OngoingMatchesService getOngoingMatchesService(){
-        return SINGLTON;
+        return INSTANCE;
     }
 
 
