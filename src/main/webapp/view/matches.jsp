@@ -41,17 +41,25 @@
             <div>
                 <table style="width: 100%; background: lightgray; border-collapse: collapse;">
                     <tr>
-                        <th style="width: 10%; text-align: left; padding: 5px;">Number</th>
-                        <th style="width: 30%; text-align: left; padding: 5px;">Player #1</th>
-                        <th style="width: 30%; text-align: left; padding: 5px;">Player #2</th>
-                        <th style="width: 30%; text-align: left; padding: 5px;">Winner</th>
+                        <th style="width: 6%; text-align: left; padding: 5px;">Number</th>
+                        <th style="width: 6%; text-align: left; padding: 5px;">
+                        <th style="width: 41%; text-align: left; padding: 5px;">Player #1</th>
+                        <th style="width: 6%; text-align: left; padding: 5px;"></th>
+                        <th style="width: 41%; text-align: left; padding: 5px;">Player #2</th>
                     </tr>
                     <c:forEach var="match" items="${matches}">
                         <tr style="border-top: 1px solid black; border-bottom: 1px solid black;">
-                            <td style="width: 10%; padding: 5px;">${match.id}</td>
-                            <td style="width: 30%; padding: 5px;">${match.player1.name}</td>
-                            <td style="width: 30%; padding: 5px;">${match.player2.name}</td>
-                            <td style="width: 30%; padding: 5px;">${match.winner.name}</td>
+                            <td style="width: 6%; padding: 5px;">${match.id}</td>
+                            <td style="width: 6%; padding: 5px; text-align: right">
+                                <c:if test = "${match.player1.name eq match.winner.name}"><img src="<%=request.getContextPath()%>/images/cup-600-600.png"
+                                           width="20" height="20" alt="">
+                                </c:if></td>
+                            <td style="width: 41%; padding: 5px;">${match.player1.name}</td>
+                            <td style="width: 6%; padding: 5px; text-align: right"">
+                                <c:if test = "${match.player2.name eq match.winner.name}"><img src="<%=request.getContextPath()%>/images/cup-600-600.png"
+                                                                                               width="20" height="20" alt="">
+                                </c:if></td>
+                            <td style="width: 41%; padding: 5px;">${match.player2.name}</td>
                         </tr>
                     </c:forEach>
                 </table>
