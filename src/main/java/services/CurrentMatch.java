@@ -1,11 +1,19 @@
 package services;
 
 import entity.Player;
+import lombok.Data;
+import lombok.ToString;
 import services.score.Score;
 
+import java.util.Random;
 import java.util.UUID;
 
+@Data
+@ToString
 public class CurrentMatch {
+
+    private Random random = new Random();
+
     private final UUID uuid;
     private final Player firstPlayer;
     private final Player secondPlayer;
@@ -15,6 +23,8 @@ public class CurrentMatch {
     private final int SET_SCHEME = 3; // потом можно модифицировать для запроса количества сетов при старте матча
     private int setForWin;
     private MatchStage stage;
+    private boolean serveFirstPlayer;
+    private boolean serveTieBrakeFirstPlayer;
 
     public CurrentMatch(UUID uuid, Player firstPlayer, Player secondPlayer) {
         this.uuid = uuid;
@@ -24,60 +34,6 @@ public class CurrentMatch {
         this.secondScore = new Score();
         this.setForWin = (SET_SCHEME + 1) / 2;
         this.stage = MatchStage.NORMAL;
-    }
-
-    @Override
-    public String toString() {
-        return "CurrentMatch{" +
-                "uuid=" + uuid +
-                ", firstPlayer=" + firstPlayer +
-                ", secondPlayer=" + secondPlayer +
-                ", winner=" + winner +
-                ", firstScore=" + firstScore +
-                ", secondScore=" + secondScore +
-                ", SET_SCHEME=" + SET_SCHEME +
-                ", setForWin=" + setForWin +
-                ", stage=" + stage +
-                '}';
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public Player getFirstPlayer() {
-        return firstPlayer;
-    }
-
-    public Player getSecondPlayer() {
-        return secondPlayer;
-    }
-
-    public Score getFirstScore() {
-        return firstScore;
-    }
-
-    public Score getSecondScore() {
-        return secondScore;
-    }
-
-    public MatchStage getStage() {
-        return stage;
-    }
-
-    public void setStage(MatchStage stage) {
-        this.stage = stage;
-    }
-
-    public int getSetForWin() {
-        return setForWin;
-    }
-
-    public Player getWinner() {
-        return winner;
-    }
-
-    public void setWinner(Player winner) {
-        this.winner = winner;
+        this.serveFirstPlayer = random.nextBoolean();
     }
 }

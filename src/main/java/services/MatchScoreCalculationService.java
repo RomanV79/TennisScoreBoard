@@ -39,6 +39,7 @@ public class MatchScoreCalculationService {
             if (isFirstPlayerWinGame(currentMatch)) {
                 currentMatch.getFirstScore().appendGame();
                 setZeroPointForAll(currentMatch);
+                currentMatch.setServeFirstPlayer(!currentMatch.isServeFirstPlayer());
             }
 
             if (isFirstPlayerWinSet(currentMatch)) {
@@ -75,6 +76,7 @@ public class MatchScoreCalculationService {
             if (isSecondPlayerWinGame(currentMatch)) {
                 currentMatch.getSecondScore().appendGame();
                 setZeroPointForAll(currentMatch);
+                currentMatch.setServeFirstPlayer(!currentMatch.isServeFirstPlayer());
             }
 
             if (isSecondPlayerWinSet(currentMatch)) {

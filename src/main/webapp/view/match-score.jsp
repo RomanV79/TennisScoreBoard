@@ -92,8 +92,10 @@
                     </div>
                     <div class="col-serve">
                         <div class="serve">
-                            <img src="https://pngimg.com/uploads/tennis/small/tennis_PNG10405.png" width="40"
-                                 height="40" alt="">
+                            <c:if test="${currentMatch.serveFirstPlayer}">
+                                <img src="https://pngimg.com/uploads/tennis/small/tennis_PNG10405.png" width="40"
+                                     height="40" alt="">
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-sets mr-6 ml-6">
@@ -171,8 +173,10 @@
                     </div>
                     <div class="col-serve">
                         <div class="serve">
-                            <img src="https://pngimg.com/uploads/tennis/small/tennis_PNG10405.png" width="40"
-                                 height="40" alt="">
+                            <c:if test="${not currentMatch.serveFirstPlayer}">
+                                <img src="https://pngimg.com/uploads/tennis/small/tennis_PNG10405.png" width="40"
+                                     height="40" alt="">
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-sets mr-6 ml-6">
