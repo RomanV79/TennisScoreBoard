@@ -214,9 +214,11 @@
                         <p style="font-size: 18px; font-weight: bold">${currentMatch.winner.name}</p>
                     </div>
                     <div style="background-color: lightgray; margin-bottom: 0px; margin-top: -10px; padding-bottom: 15px;">
-                        <a href="index.jsp">
+
+                        <form action="end-match" method="post">
+                            <input type="hidden" value="${currentMatch.uuid}" name="uuid">
                             <button type="submit" class="card_button" style="font-size: 14px;">Continue</button>
-                        </a>
+                        </form>
                     </div>
                 </div>
             </c:if>

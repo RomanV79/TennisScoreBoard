@@ -22,8 +22,12 @@ public class OngoingMatchesService {
         currentMatches.put(uuid, currentMatch);
     }
 
-    public Map<UUID, CurrentMatch> getCurrentMatches() {
-        return currentMatches;
+//    public Map<UUID, CurrentMatch> getCurrentMatches() {
+//        return currentMatches;
+//    }
+
+    public void remove(UUID uuid) {
+        currentMatches.remove(uuid);
     }
 
     public CurrentMatch getCurrentMatch(UUID uuid) {

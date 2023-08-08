@@ -42,9 +42,10 @@ public class FinishedMatchesPersistenceService {
         }
     }
 
-    public void removeCurrentEndMatch(CurrentMatch currentMatch) {
-        if (currentMatch.getStage() == MatchStage.END) {
-            ongoingMatchesService.getCurrentMatches().remove(currentMatch.getUuid());
-        }
-    }
+//    public void removeCurrentEndMatch(CurrentMatch currentMatch) {
+//        if (currentMatch.getStage() == MatchStage.END) {
+//            ongoingMatchesService.getCurrentMatches().remove(currentMatch.getUuid());
+//        }
+//    }
+
 }
