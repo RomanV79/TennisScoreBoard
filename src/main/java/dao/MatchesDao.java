@@ -70,8 +70,8 @@ public class MatchesDao implements Dao<Match> {
         try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
             session.beginTransaction();
 //            Query query = session.createQuery("from Match where Match.player1 = :name or Match.player2 = :name", Match.class);
-            Query query = session.createQuery("from Match where player1.name = :name or player2.name = :name", Match.class);
-            query.setParameter("name", name);
+            Query query = session.createQuery("from Match where player1.name like:name or player2.name like:name", Match.class);
+            query.setParameter("name", "%" + name.toUpperCase().trim() + "%");
             matches = query.getResultList();
             session.getTransaction().commit();
         } catch (Exception e) {
