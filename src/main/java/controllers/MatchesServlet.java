@@ -20,36 +20,35 @@ public class MatchesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String filterName = req.getParameter("filter_by_player_name");
-        List<Match> matches = matchesDao.getAll();
-        List<Match> matchesToView;
-        if (filterName == null || filterName.equals("")) {
-            matchesToView = matches;
+
+        List<Match> matches;
+        if (filterName == null || filterName.trim().equals("")) {
+            matches = matchesDao.getAll();
         } else {
-            filterName = filterName.trim();
-            matchesToView = UtilMatches.matchesWithName(matches, filterName);
+            matches = matchesDao.getByPlayerName(filterName);
         }
-        Collections.reverse(matchesToView);
+        Collections.reverse(matches);
 
         int page = 0;
         int itemPerPage = 5;
-        int qntOfPage = matchesToView.size() / itemPerPage + 1;
+        int qntOfPage = matches.size() / itemPerPage + 1;
         if (req.getParameter("page") != null) {
             page = Integer.parseInt(req.getParameter("page"));
         }
-        if (matchesToView.size() > itemPerPage) {
+        if (matches.size() > itemPerPage) {
             int startN = page * itemPerPage;
             int endN;
             if (page + 1 != qntOfPage) {
                 endN = itemPerPage * (page + 1);
             } else {
-                endN = matchesToView.size();
+                endN = matches.size();
             }
-            matchesToView = matchesToView.subList(startN, endN);
+            matches = matches.subList(startN, endN);
         }
 
         req.setAttribute("qntOfPage", qntOfPage);
         req.setAttribute("currentPage", page);
-        req.setAttribute("matches", matchesToView);
+        req.setAttribute("matches", matches);
         req.getRequestDispatcher("/view/matches.jsp").forward(req, resp);
     }
 }

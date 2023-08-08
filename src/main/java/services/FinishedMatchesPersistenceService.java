@@ -14,7 +14,6 @@ public class FinishedMatchesPersistenceService {
 
     public void persist(CurrentMatch currentMatch) {
         if (currentMatch.getStage() == MatchStage.END) {
-            System.out.println(currentMatch);
             Optional<Player> firstPlayerOptional = playerDao.getByName(currentMatch.getFirstPlayer().getName());
             Player firstPlayer;
             if (firstPlayerOptional.isPresent()) {

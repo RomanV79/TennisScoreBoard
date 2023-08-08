@@ -64,4 +64,19 @@ public class MatchesDao implements Dao<Match> {
         }
         return matches;
     }
+
+    public List<Match> getByPlayerName(String name) {
+        List<Match> matches = null;
+        try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
+            session.beginTransaction();
+//            Query query = session.createQuery("from Match where Match.player1 = :name or Match.player2 = :name", Match.class);
+            Query query = session.createQuery("from Match where player1.name = :name or player2.name = :name", Match.class);
+            query.setParameter("name", name);
+            matches = query.getResultList();
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return matches;
+    }
 }
