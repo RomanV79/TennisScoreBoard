@@ -135,6 +135,7 @@ buildNumber.properties
 .classpath
 
 .idea/
+/.idea
 target/
 TennisScoreBoard.iml
 
