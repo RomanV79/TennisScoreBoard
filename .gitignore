@@ -136,6 +136,7 @@ buildNumber.properties
 
 .idea/
 target/
+TennisScoreBoard.iml
 
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,maven
