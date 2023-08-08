@@ -15,7 +15,9 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="TennisScoreBoard" value="6eab9485-d356-44ec-94fc-130e532578dd" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
