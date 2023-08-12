@@ -17,11 +17,10 @@ public class MatchScoreServlet extends HttpServlet {
     private final OngoingMatchesService ongoingMatchesService = OngoingMatchesService.getOngoingMatchesService();
     private final MatchScoreCalculationService matchScoreCalculationService = new MatchScoreCalculationService();
     private final FinishedMatchesPersistenceService finishedMatchesPersistenceService = new FinishedMatchesPersistenceService();
-    CurrentMatch currentMatch;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        currentMatch = ongoingMatchesService.getCurrentMatch(getUuid(req));
+        CurrentMatch currentMatch = ongoingMatchesService.getCurrentMatch(getUuid(req));
         req.setAttribute("currentMatch", currentMatch);
         req.getRequestDispatcher("/view/match-score.jsp").forward(req, resp);
 
@@ -40,14 +39,13 @@ public class MatchScoreServlet extends HttpServlet {
         } else {
             playerEnum = PlayerEnum.SECOND_PLAYER;
         }
-        currentMatch = ongoingMatchesService.getCurrentMatch(uuidRow);
+
+        CurrentMatch currentMatch = ongoingMatchesService.getCurrentMatch(uuidRow);
         matchScoreCalculationService.winPoint(currentMatch, playerEnum);
         resp.sendRedirect("match-score?uuid=" + uuid);
         if (currentMatch.getStage() == MatchStage.END) {
             finishedMatchesPersistenceService.persist(currentMatch);
         }
-//        finishedMatchesPersistenceService.removeCurrentEndMatch(currentMatch);
-
     }
 
     private static UUID getUuid(HttpServletRequest req) {
