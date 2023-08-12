@@ -5,10 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import services.CurrentMatch;
-import services.FinishedMatchesPersistenceService;
-import services.MatchScoreCalculationService;
-import services.OngoingMatchesService;
+import services.*;
 import services.score.PlayerEnum;
 
 import java.io.IOException;
@@ -46,7 +43,9 @@ public class MatchScoreServlet extends HttpServlet {
         currentMatch = ongoingMatchesService.getCurrentMatch(uuidRow);
         matchScoreCalculationService.winPoint(currentMatch, playerEnum);
         resp.sendRedirect("match-score?uuid=" + uuid);
-        finishedMatchesPersistenceService.persist(currentMatch);
+        if (currentMatch.getStage() == MatchStage.END) {
+            finishedMatchesPersistenceService.persist(currentMatch);
+        }
 //        finishedMatchesPersistenceService.removeCurrentEndMatch(currentMatch);
 
     }

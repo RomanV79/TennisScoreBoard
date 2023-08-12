@@ -79,7 +79,7 @@
                 </c:if>
             </div>
             <div style="display: flex; white-space: normal; justify-content: center">
-                <p style="color: white">Total items: ${totalItems} / Page ${currentPage} from ${totalPages}</p>
+                <p style="color: white">Total items: ${totalItems} = = = Page ${currentPage + 1} from ${totalPages}</p>
             </div>
         </div>
     </div>
