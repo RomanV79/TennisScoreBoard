@@ -51,13 +51,15 @@
                         <tr style="border-top: 1px solid black; border-bottom: 1px solid black;">
                             <td style="width: 6%; padding: 5px;">${match.id}</td>
                             <td style="width: 6%; padding: 5px; text-align: right">
-                                <c:if test = "${match.player1.name eq match.winner.name}"><img src="<%=request.getContextPath()%>/images/cup-600-600.png"
-                                           width="20" height="20" alt="">
+                                <c:if test="${match.player1.name eq match.winner.name}"><img
+                                        src="<%=request.getContextPath()%>/images/cup-600-600.png"
+                                        width="20" height="20" alt="">
                                 </c:if></td>
                             <td style="width: 41%; padding: 5px; text-transform: capitalize;">${match.player1.name.toLowerCase()}</td>
                             <td style="width: 6%; padding: 5px; text-align: right">
-                                <c:if test = "${match.player2.name eq match.winner.name}"><img src="<%=request.getContextPath()%>/images/cup-600-600.png"
-                                                                                               width="20" height="20" alt="">
+                                <c:if test="${match.player2.name eq match.winner.name}"><img
+                                        src="<%=request.getContextPath()%>/images/cup-600-600.png"
+                                        width="20" height="20" alt="">
                                 </c:if></td>
                             <td style="width: 41%; padding: 5px; text-transform: capitalize">${match.player2.name.toLowerCase()}</td>
                         </tr>
@@ -70,11 +72,14 @@
                         <p style="padding: 10px; color: white">Previous</p>
                     </a>
                 </c:if>
-                <c:if test="${currentPage lt qntOfPage -1}">
+                <c:if test="${currentPage lt totalPages -1}">
                     <a href="?page=${currentPage + 1}">
                         <p style="padding: 10px; color: white">Next</p>
                     </a>
                 </c:if>
+            </div>
+            <div style="display: flex; white-space: normal; justify-content: center">
+                <p style="color: white">Total items: ${totalItems} / Page ${currentPage} from ${totalPages}</p>
             </div>
         </div>
     </div>
