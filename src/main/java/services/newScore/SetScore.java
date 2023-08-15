@@ -1,11 +1,7 @@
 package services.newScore;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SetScore extends Score<Integer> {
     private GameScore<?> currentGame;
-    private final List<?> playerScore = new ArrayList<>();
 
     public SetScore() {
         this.currentGame = new GameRegularScore();
@@ -66,4 +62,5 @@ public class SetScore extends Score<Integer> {
 
         return State.ONGOING;
     }
+
 }
