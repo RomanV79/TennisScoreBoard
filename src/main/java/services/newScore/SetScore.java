@@ -1,6 +1,9 @@
 package services.newScore;
 
+import lombok.Getter;
+
 public class SetScore extends Score<Integer> {
+    @Getter
     private GameScore<?> currentGame;
 
     public SetScore() {

@@ -3,6 +3,7 @@ package services;
 import entity.Player;
 import lombok.Data;
 import lombok.ToString;
+import services.newScore.MatchScore;
 import services.score.Score;
 
 import java.util.Random;
@@ -26,6 +27,7 @@ public class CurrentMatch {
     private MatchStage stage;
     private boolean serveFirstPlayer;
     private boolean serveTieBrakeFirstPlayer;
+    private MatchScore matchScore;
 
     public CurrentMatch(UUID uuid, Player firstPlayer, Player secondPlayer, int setsInMatch) {
         this.uuid = uuid;
@@ -34,6 +36,7 @@ public class CurrentMatch {
         this.firstScore = new Score();
         this.secondScore = new Score();
         this.setForWin = (setsInMatch + 1) / 2;
+        this.matchScore = new MatchScore(setForWin);
         this.stage = MatchStage.NORMAL;
         this.serveFirstPlayer = random.nextBoolean();
     }

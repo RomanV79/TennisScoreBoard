@@ -49,39 +49,39 @@
                 <div class="table-score">
                     <div class="col-prev-sets ml-6 mr-6">
                         <div class="col-score-set">
-                            <c:if test="${currentMatch.firstScore.listSet.size() == 0}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(1, 0) == -1}">
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
-                            <c:if test="${currentMatch.firstScore.listSet.size() > 0}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(1, 0) != -1}">
                                 <p class="text-score"><c:out
-                                        value="${currentMatch.firstScore.listSet.get(0)}"></c:out></p>
+                                        value="${currentMatch.matchScore.getGameResultsInSet(1, 0)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
-                            <c:if test="${currentMatch.firstScore.listSet.size() < 2}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(2, 0) == -1}">
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
-                            <c:if test="${currentMatch.firstScore.listSet.size() > 1}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(2, 0) != -1}">
                                 <p class="text-score"><c:out
-                                        value="${currentMatch.firstScore.listSet.get(1)}"></c:out></p>
+                                        value="${currentMatch.matchScore.getGameResultsInSet(2, 0)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
-                            <c:if test="${currentMatch.firstScore.listSet.size() < 3}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(3, 0) == -1}">
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
-                            <c:if test="${currentMatch.firstScore.listSet.size() > 2}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(3, 0) != -1}">
                                 <p class="text-score"><c:out
-                                        value="${currentMatch.firstScore.listSet.get(2)}"></c:out></p>
+                                        value="${currentMatch.matchScore.getGameResultsInSet(3, 0)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
-                            <c:if test="${currentMatch.firstScore.listSet.size() < 4}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(4, 0) == -1}">
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
-                            <c:if test="${currentMatch.firstScore.listSet.size() > 3}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(4, 0) != -1}">
                                 <p class="text-score"><c:out
-                                        value="${currentMatch.firstScore.listSet.get(3)}"></c:out></p>
+                                        value="${currentMatch.matchScore.getGameResultsInSet(4, 0)}"></c:out></p>
                             </c:if>
                         </div>
                     </div>
@@ -100,23 +100,30 @@
                     </div>
                     <div class="col-sets mr-6 ml-6">
                         <div class="col-score-set">
-                            <p class="text-score">${currentMatch.firstScore.scoreGame}</p>
+                            <c:if test="${currentMatch.matchScore.getPlayerScore(0) != currentMatch.setForWin
+                                    and currentMatch.matchScore.getPlayerScore(1) != currentMatch.setForWin}">
+                                <p class="text-score">${currentMatch.matchScore.currentSet.getPlayerScore(0)}</p>
+                            </c:if>
+                            <c:if test="${currentMatch.matchScore.getPlayerScore(0) + currentMatch.matchScore.getPlayerScore(1) == 5}">
+                                <p class="text-score">${currentMatch.matchScore.currentSet.getPlayerScore(0)}</p>
+                            </c:if>
+                            <c:if test="${(currentMatch.matchScore.getPlayerScore(0) == currentMatch.setForWin
+                                    or currentMatch.matchScore.getPlayerScore(1) == currentMatch.setForWin)
+                                    and (currentMatch.matchScore.getPlayerScore(0) + currentMatch.matchScore.getPlayerScore(1)) != 5}">
+                                <p class="text-score">0</p>
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-points mr-6 ml-6">
                         <div class="col-score-points">
-                            <c:if test="${currentMatch.stage eq 'NORMAL'}">
-                                <p class="text-score">${currentMatch.firstScore.scorePoint.pointCode}</p>
-                            </c:if>
-                            <c:if test="${currentMatch.stage eq 'TIEBREAK'}">
-                                <p class="text-score">${currentMatch.firstScore.scoreTieBreak}</p>
-                            </c:if>
+                            <p class="text-score">${currentMatch.matchScore.getCurrentGameScore(0)}</p>
                         </div>
                     </div>
                     <div class="col-but">
                         <div class="btn-wrapper">
                             <form method="post">
-                                <c:if test="${currentMatch.stage ne 'END'}">
+                                <c:if test="${currentMatch.matchScore.getPlayerScore(0) != currentMatch.setForWin
+                                    and currentMatch.matchScore.getPlayerScore(1) != currentMatch.setForWin}">
                                     <button class="btn" name="player-1" value="player-1-win">Take score #1</button>
                                 </c:if>
                             </form>
@@ -130,39 +137,39 @@
                 <div class="table-score">
                     <div class="col-prev-sets ml-6 mr-6">
                         <div class="col-score-set">
-                            <c:if test="${currentMatch.secondScore.listSet.size() == 0}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(1, 1) == -1}">
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
-                            <c:if test="${currentMatch.secondScore.listSet.size() > 0}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(1, 1) != -1}">
                                 <p class="text-score"><c:out
-                                        value="${currentMatch.secondScore.listSet.get(0)}"></c:out></p>
+                                        value="${currentMatch.matchScore.getGameResultsInSet(1, 1)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
-                            <c:if test="${currentMatch.secondScore.listSet.size() < 2}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(2, 1) == -1}">
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
-                            <c:if test="${currentMatch.secondScore.listSet.size() > 1}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(2, 1) != -1}">
                                 <p class="text-score"><c:out
-                                        value="${currentMatch.secondScore.listSet.get(1)}"></c:out></p>
+                                        value="${currentMatch.matchScore.getGameResultsInSet(2, 1)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
-                            <c:if test="${currentMatch.secondScore.listSet.size() < 3}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(3, 1) == -1}">
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
-                            <c:if test="${currentMatch.secondScore.listSet.size() > 2}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(3, 1) != -1}">
                                 <p class="text-score"><c:out
-                                        value="${currentMatch.secondScore.listSet.get(2)}"></c:out></p>
+                                        value="${currentMatch.matchScore.getGameResultsInSet(3, 1)}"></c:out></p>
                             </c:if>
                         </div>
                         <div class="col-score-set">
-                            <c:if test="${currentMatch.secondScore.listSet.size() < 4}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(4, 1) == -1}">
                                 <p class="text-score" style="color: black">.</p>
                             </c:if>
-                            <c:if test="${currentMatch.secondScore.listSet.size() > 3}">
+                            <c:if test="${currentMatch.matchScore.getGameResultsInSet(4, 1) != -1}">
                                 <p class="text-score"><c:out
-                                        value="${currentMatch.secondScore.listSet.get(3)}"></c:out></p>
+                                        value="${currentMatch.matchScore.getGameResultsInSet(4, 1)}"></c:out></p>
                             </c:if>
                         </div>
                     </div>
@@ -181,23 +188,30 @@
                     </div>
                     <div class="col-sets mr-6 ml-6">
                         <div class="col-score-set">
-                            <p class="text-score">${currentMatch.secondScore.scoreGame}</p>
+                            <c:if test="${currentMatch.matchScore.getPlayerScore(0) != currentMatch.setForWin
+                                    and currentMatch.matchScore.getPlayerScore(1) != currentMatch.setForWin}">
+                                <p class="text-score">${currentMatch.matchScore.currentSet.getPlayerScore(1)}</p>
+                            </c:if>
+                            <c:if test="${currentMatch.matchScore.getPlayerScore(0) + currentMatch.matchScore.getPlayerScore(1) == 5}">
+                                <p class="text-score">${currentMatch.matchScore.currentSet.getPlayerScore(1)}</p>
+                            </c:if>
+                            <c:if test="${(currentMatch.matchScore.getPlayerScore(0) == currentMatch.setForWin
+                                    or currentMatch.matchScore.getPlayerScore(1) == currentMatch.setForWin)
+                                    and (currentMatch.matchScore.getPlayerScore(0) + currentMatch.matchScore.getPlayerScore(1)) != 5}">
+                                <p class="text-score">0</p>
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-points mr-6 ml-6">
                         <div class="col-score-points">
-                            <c:if test="${currentMatch.stage eq 'NORMAL'}">
-                                <p class="text-score">${currentMatch.secondScore.scorePoint.pointCode}</p>
-                            </c:if>
-                            <c:if test="${currentMatch.stage eq 'TIEBREAK'}">
-                                <p class="text-score">${currentMatch.secondScore.scoreTieBreak}</p>
-                            </c:if>
+                            <p class="text-score">${currentMatch.matchScore.getCurrentGameScore(1)}</p>
                         </div>
                     </div>
                     <div class="col-but">
                         <div class="btn-wrapper">
                             <form method="post">
-                                <c:if test="${currentMatch.stage ne 'END'}">
+                                <c:if test="${currentMatch.matchScore.getPlayerScore(0) != currentMatch.setForWin
+                                    and currentMatch.matchScore.getPlayerScore(1) != currentMatch.setForWin}">
                                     <button class="btn" name="player-2" value="player-2-win">Take score #2</button>
                                 </c:if>
                             </form>

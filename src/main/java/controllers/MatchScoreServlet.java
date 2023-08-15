@@ -33,14 +33,19 @@ public class MatchScoreServlet extends HttpServlet {
         String win2 = req.getParameter("player-2");
         UUID uuidRow = UUID.fromString(uuid);
 
+
+        CurrentMatch currentMatch = ongoingMatchesService.getCurrentMatch(uuidRow);
+
         PlayerEnum playerEnum;
         if (win1 != null) {
             playerEnum = PlayerEnum.FIRST_PLAYER;
+            currentMatch.getMatchScore().pointWon(0);
         } else {
             playerEnum = PlayerEnum.SECOND_PLAYER;
+            currentMatch.getMatchScore().pointWon(1);
         }
 
-        CurrentMatch currentMatch = ongoingMatchesService.getCurrentMatch(uuidRow);
+
         matchScoreCalculationService.winPoint(currentMatch, playerEnum);
         resp.sendRedirect("match-score?uuid=" + uuid);
         if (currentMatch.getStage() == MatchStage.END) {
