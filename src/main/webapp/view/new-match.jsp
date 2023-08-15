@@ -17,10 +17,17 @@
         <div class="main">
             <form action="new-match" method="post">
                 <div class="">
-                    <input type="text" placeholder="Player #1 Name" id="1" name="player-1" required />
+                    <input type="text" placeholder="Player #1 Name" id="1" name="player-1" required/>
                 </div>
                 <div class="">
-                    <input type="text" placeholder="Player #2 Name" id="2" name="player-2" required />
+                    <input type="text" placeholder="Player #2 Name" id="2" name="player-2" required/>
+                </div>
+                <div class="" style="padding-top: 5px">
+                    <select class="form-select" id="match-sets" name="match-sets" required>
+                        <option value="">--Please select the quantity of sets in the match--</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                    </select>
                 </div>
                 <div>
                     <button class="card_button">Start game</button>

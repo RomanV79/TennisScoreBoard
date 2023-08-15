@@ -178,6 +178,7 @@
     margin-top: 10px;
     margin-bottom: 0px;
 }
+
 .text-result {
     font-size: 24px;
     color: black;
@@ -191,10 +192,10 @@
 }
 
 .btn {
-    background-color:darkgray;
-    height:80px;
-    width:80px;
-    cursor:pointer;
+    background-color: darkgray;
+    height: 80px;
+    width: 80px;
+    cursor: pointer;
     color: white;
     font-weight: bold;
     font-size: 16px;
@@ -205,7 +206,7 @@
 
 .btn:hover {
     background-color: gray;
-    color:black;
+    color: black;
 }
 
 .main {
@@ -214,6 +215,7 @@
     margin-top: 50px;
     flex-direction: column;
 }
+
 .start-link {
     display: flex;
     margin-top: 30px;
@@ -245,7 +247,7 @@
 }
 
 .m-10 {
-    margin:10px;
+    margin: 10px;
 }
 
 .ml-6 {
@@ -262,29 +264,38 @@
 
 input[type=text] {
     margin-top: 10px;
-    padding:10px;
-    border:0;
-    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-    border-radius:10px;
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    width: 100%;
+}
+
+select {
+    margin-top: 10px;
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
     width: 100%;
 }
 
 .card_button {
-    appearance:none;
-    -webkit-appearance:none;
+    appearance: none;
+    -webkit-appearance: none;
     margin-top: 10px;
-    padding:10px;
-    border:none;
-    background-color:green;
-    color:white;
-    font-weight:600;
-    border-radius:5px;
-    width:100%;
+    padding: 10px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 100%;
 }
 
 .card_button:hover {
     color: white;
-    background-color:darkgreen;
+    background-color: darkgreen;
 }
 
 

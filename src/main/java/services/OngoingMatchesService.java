@@ -2,7 +2,8 @@ package services;
 
 import entity.Player;
 
-import java.util.*;
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class OngoingMatchesService {
@@ -12,13 +13,13 @@ public class OngoingMatchesService {
     private OngoingMatchesService() {
     }
 
-    public static OngoingMatchesService getOngoingMatchesService(){
+    public static OngoingMatchesService getOngoingMatchesService() {
         return INSTANCE;
     }
 
 
-    public void createNewMatch(UUID uuid, Player firstPlayer, Player secondPlayer) {
-        CurrentMatch currentMatch = new CurrentMatch(uuid, firstPlayer, secondPlayer);
+    public void createNewMatch(UUID uuid, Player firstPlayer, Player secondPlayer, int setsInMatch) {
+        CurrentMatch currentMatch = new CurrentMatch(uuid, firstPlayer, secondPlayer, setsInMatch);
         currentMatches.put(uuid, currentMatch);
     }
 
