@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import services.CurrentMatch;
 import services.FinishedMatchesPersistenceService;
+import services.MatchScoreCalculationService;
 import services.OngoingMatchesService;
 import services.newScore.State;
 
@@ -17,6 +18,7 @@ import java.util.UUID;
 public class MatchScoreServlet extends HttpServlet {
 
     private final OngoingMatchesService ongoingMatchesService = OngoingMatchesService.getOngoingMatchesService();
+    private final MatchScoreCalculationService matchScoreCalculationService = new MatchScoreCalculationService();
     private final FinishedMatchesPersistenceService finishedMatchesPersistenceService = new FinishedMatchesPersistenceService();
 
     @Override
@@ -36,6 +38,7 @@ public class MatchScoreServlet extends HttpServlet {
 
         CurrentMatch currentMatch = ongoingMatchesService.getCurrentMatch(uuidRow);
 
+//        PlayerEnum playerEnum;
         if (win1 != null) {
             if (currentMatch.getMatchScore().pointWon(0) == State.PLAYER_ONE_WON) {
                 currentMatch.setWinner(currentMatch.getFirstPlayer());
@@ -48,7 +51,11 @@ public class MatchScoreServlet extends HttpServlet {
             }
         }
 
+//        matchScoreCalculationService.winPoint(currentMatch, playerEnum);
         resp.sendRedirect("match-score?uuid=" + uuid);
+//        if (currentMatch.getStage() == MatchStage.END) {
+//            finishedMatchesPersistenceService.persist(currentMatch);
+//        }
     }
 
     private static UUID getUuid(HttpServletRequest req) {
