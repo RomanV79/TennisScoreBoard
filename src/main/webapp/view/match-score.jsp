@@ -219,7 +219,8 @@
                     </div>
                 </div>
             </div>
-            <c:if test="${currentMatch.stage eq 'END'}">
+            <c:if test="${currentMatch.matchScore.getPlayerScore(0) == currentMatch.setForWin
+                    or currentMatch.matchScore.getPlayerScore(1) == currentMatch.setForWin}">
                 <div>
                     <div class="table-result-title">
                         <p class="result-title">winner</p>
