@@ -3,10 +3,7 @@ package services.newScore;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Slf4j
@@ -16,11 +13,14 @@ public class MatchScore extends Score<Integer> {
     @Getter
     private SetScore currentSet;
     private final int setsForWin;
+    @Getter
+    private int serve;
 
     public MatchScore(int setsForWin) {
         this.gameResultsInSet = new HashMap<>();
         this.setsForWin = setsForWin;
         this.currentSet = new SetScore();
+        this.serve = new Random().nextInt(2);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package services.newScore;
 
 public class GameRegularScore extends GameScore<GameRegularPlayerPoints> {
+
     @Override
     protected GameRegularPlayerPoints getZeroScore() {
         return GameRegularPlayerPoints.ZERO;

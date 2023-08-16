@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-serve">
                         <div class="serve">
-                            <c:if test="${currentMatch.serveFirstPlayer}">
+                            <c:if test="${currentMatch.matchScore.serve == 0}">
                                 <img src="https://pngimg.com/uploads/tennis/small/tennis_PNG10405.png" width="40"
                                      height="40" alt="">
                             </c:if>
@@ -180,7 +180,7 @@
                     </div>
                     <div class="col-serve">
                         <div class="serve">
-                            <c:if test="${not currentMatch.serveFirstPlayer}">
+                            <c:if test="${currentMatch.matchScore.serve == 1}">
                                 <img src="https://pngimg.com/uploads/tennis/small/tennis_PNG10405.png" width="40"
                                      height="40" alt="">
                             </c:if>

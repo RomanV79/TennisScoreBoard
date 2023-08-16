@@ -32,8 +32,4 @@ public class CurrentMatch {
         this.matchScore = new MatchScore(setForWin);
         this.serveFirstPlayer = random.nextBoolean();
     }
-
-    public void changeServe() {
-        serveFirstPlayer = !serveFirstPlayer;
-    }
 }
