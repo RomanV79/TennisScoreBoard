@@ -2,7 +2,6 @@ package services.newScore;
 
 public class GameTieBreakScore extends GameScore<Integer> {
 
-
     @Override
     protected Integer getZeroScore() {
         return 0;
